@@ -3,7 +3,11 @@
  *
  * Sample input:
  *
- * [{ 'course-id': 123 }, { title: 'Dev Mountain' }, { start_date: new Date(2014, 2, 14) }]
+ * [
+ 		{ 'course-id': 123 }, 
+ 		{ title: 'Dev Mountain' },
+ 		{ start_date: new Date(2014, 2, 14) }
+ 		]
  *
  * Sample output:
  *
@@ -17,5 +21,11 @@
  * @returns {Object} object with all fields included
  */
 module.exports = function (fields) {
-
+	var outputObject = {};
+	fields.forEach(function(elem){
+		for(key in elem){
+			outputObject[key] = elem[key];
+		}
+	})
+	return outputObject;
 }
